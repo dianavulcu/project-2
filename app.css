@@ -1,0 +1,47 @@
+.lala{
+	background-color:lightgreen;
+	width: 200px;
+	padding: 20px;
+	border: 10px solid green;
+	
+
+}
+/*table, th, td{
+	border:  1px solid black;
+	border-collapse: collapse;
+	text-align: left;
+	margin: 10 px;
+	background-color: white;
+}*/
+
+
+body{
+	background-image: url("football.jpg");
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#myTh{
+	width:200px;
+	padding: 10px;
+}
+
+#sortable { list-style-type: none; margin: 0; padding: 0; width: 20%; padding: 10px;border: 10px solid navy; border-collapse: collapse;}
+#header{list-style-type: none; margin: 0; padding: 0; width: 20%; padding: 10px;border: 10px solid navy; border-collapse: collapse; }
+#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; border-collapse: collapse; }
+#sortable li span { position: absolute; margin-left: -1.3em; border-collapse: collapse;}
+
+#sortable1 { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+#sortable1 li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+#sortable1 li span { position: absolute; margin-left: -1.3em; }
+
+.ui-state-default{
+	border:  1px solid black;
+	border-collapse: collapse;
+	text-align: left;
+	margin: 10 px;
+	background-color: white;
+
+}
