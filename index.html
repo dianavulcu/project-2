@@ -2,8 +2,9 @@
 <html ng-app="todoApp">
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-		<script src="project-2/app.js"></script>
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="app.js"></script>
+		<script type="text/javascript" src="test.json"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<link rel="stylesheet" href="app.css">		
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -31,8 +32,9 @@
 			 <input type="text" ng-model="user.lastName"><br>
 			 <br><br>
 			 <button ng-click="save">SAVE</button>
-			 <button ng-click="load">LOAD</button>
+			 <button type="button" onclick="loadDoc()">LOAD</button>
 			 <button ng-click="reset()">RESET</button>
+			 
 			</form>
 		</div>
 		<table>	
