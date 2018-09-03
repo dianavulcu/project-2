@@ -16,7 +16,26 @@
 		</style> -->
 		  <script>
 		$( function() {
-			$( "#sortable" ).sortable();
+			$( "#sortable" ).sortable({
+    /*stop: function(event, ui) {
+        alert("New position: " + ui.item.index());
+    }*/
+    start: function(e, ui) {
+        // creates a temporary attribute on the element with the old index
+        $(this).attr('data-previndex', ui.item.index());
+    },
+    update: function(e, ui) {
+        // gets the new and old index then removes the temporary attribute
+        var newIndex = ui.item.index();
+        var oldIndex = $(this).attr('data-previndex');
+				var element_id = ui.item.attr('id');
+				//Todo:
+				//Function to get three elemets as parameters : newIndex oldIndex element_id
+        alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+        $(this).removeAttr('data-previndex');
+    }
+}
+			);
 			$( "#sortable" ).disableSelection();
 			$( "#sortable1" ).sortable();
 			$( "#sortable1" ).disableSelection();
@@ -41,7 +60,7 @@
 			 <br><br>
 			 <button type="button" onclick="modifyMe()" >SAVE</button>
 			 <button type="button" onclick="loadDoc()">LOAD</button>
-			 <button ng-click="reset()">RESET</button>
+			 <button type="button" onclick="resetMe()">RESET</button>
 			 
 			</form>
 		</div>
