@@ -1,1 +1,2 @@
-data = '[{"nume" : "Anglia", "grupa" : "1"},{"nume" : "Spania", "grupa" : "1"},{"nume" : "Franta", "grupa" : "1"},{"nume" : "Belgia", "grupa" : "1"}]';	
+data = '[{"nume" : "Bresil", "grupa" : "1"},{"nume" : "Mexic", "grupa" : "1"},{"nume" : "Croatia", "grupa" : "1"},{"nume" : "Cameroun", "grupa" : "1"},{"nume" : "Espagne", "grupa" : "1"},{"nume" : "Pays-bas", "grupa" : "1"},{"nume" : "Chili", "grupa" : "1"},{"nume" : "Australie", "grupa" : "1"}]';
+	        
