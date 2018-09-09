@@ -27,11 +27,12 @@
     update: function(e, ui) {
         // gets the new and old index then removes the temporary attribute
         var newIndex = ui.item.index();
-        var oldIndex = $(this).attr('data-previndex');
+        var oldIndex = parseInt($(this).attr('data-previndex'))
 				var element_id = ui.item.attr('id');
 				//Todo:
 				//Function to get three elemets as parameters : newIndex oldIndex element_id
-        alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+		//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+				applyPermuttation(element_id,oldIndex,newIndex )
         $(this).removeAttr('data-previndex');
     }
 }
