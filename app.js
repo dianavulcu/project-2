@@ -61,5 +61,9 @@ function loadDoc() {
   }
 
   function permutteAlltoTheRight(oldIndex, newIndex){
+    for (i=oldIndex;i>newIndex;i--)
+    {
+      userdata_backend[i]=userdata_backend[i-1]
+    }
 
   }
