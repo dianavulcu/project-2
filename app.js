@@ -7,7 +7,7 @@ function loadDoc() {
     refresh()
   }
   function refresh(){
-  for (i=0; i<8;i++)
+  for (i=0; i<32;i++)
   {
     console.log(userdata_model[i].nume);
     document.getElementById("testme"+i).innerHTML = userdata_model[i].nume;
@@ -46,7 +46,7 @@ function loadDoc() {
 
   function printMe(){
     console.log("printMe Updated data");
-    for (i=0; i<8;i++)
+    for (i=0; i<32;i++)
     {
       console.log(userdata_backend[i].nume);
 
