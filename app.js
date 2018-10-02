@@ -5,8 +5,8 @@ function loadDoc() {
     console.log("am intrat in loadDoc");
     userdata_model = JSON.parse(data);	
     userdata_backend = userdata_model
-    refresh()   //going from BACKEND to FRONTEND
     calcOptieme() //generating optimeme
+    refresh()   //going from BACKEND to FRONTEND
   }
   function refresh(){
   for (i=0; i<32;i++)
@@ -24,6 +24,13 @@ function loadDoc() {
   function resetMe() {
     console.log("am intrat in resetMe");
     $( "#sortable" ).sortable( "cancel" );
+    $( "#sortable1" ).sortable( "cancel" );
+    $( "#sortable2" ).sortable( "cancel" );
+    $( "#sortable3" ).sortable( "cancel" );
+    $( "#sortable4" ).sortable( "cancel" );
+    $( "#sortable5" ).sortable( "cancel" );
+    $( "#sortable6" ).sortable( "cancel" );
+    $( "#sortable7" ).sortable( "cancel" );
     //$( "#sortable" ).sortable( "refresh" );
   }
 
