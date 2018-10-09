@@ -6,7 +6,7 @@ function loadDoc() {
     userdata_model = JSON.parse(data);	
     userdata_backend = userdata_model
     calcOptieme() //generating optimeme
-    applyOnStartupGroups()   //going from BACKEND to FRONTEND
+    applyOnStartupGroups()   //applying first time groups from json file
     refreshBackend()
   }
   function applyOnStartupGroups() {
@@ -18,7 +18,7 @@ function loadDoc() {
   }
 
   function refreshBackend(){
-    for (i=0; i<8;i++)   //Todo: Cand adaugam si celelalte optimi sa emrgem pana la 16
+    for (i=0; i<16;i++)   
     {
       console.log(usedata_optimi[i].nume);
       document.getElementById("optimi"+i).innerHTML = usedata_optimi[i].nume;
@@ -36,7 +36,7 @@ function loadDoc() {
     $( "#sortable5" ).sortable( "cancel" );
     $( "#sortable6" ).sortable( "cancel" );
     $( "#sortable7" ).sortable( "cancel" );
-    //$( "#sortable" ).sortable( "refresh" );
+    loadDoc();
   }
 
   function applyPermuttation(element_id, oldIndex, newIndex){
