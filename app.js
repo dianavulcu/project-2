@@ -6,20 +6,25 @@ function loadDoc() {
     userdata_model = JSON.parse(data);	
     userdata_backend = userdata_model
     calcOptieme() //generating optimeme
-    refresh()   //going from BACKEND to FRONTEND
+    applyOnStartupGroups()   //going from BACKEND to FRONTEND
+    refreshBackend()
   }
-  function refresh(){
+  function applyOnStartupGroups() {
   for (i=0; i<32;i++)
   {
     console.log(userdata_model[i].nume);
     document.getElementById("testme"+i).innerHTML = userdata_model[i].nume;
   }
-}
-  function modifyMe() {
-    console.log("am intrat in modifyMe");
-    userdata_model[0].nume = "Diana somnoroasa"
-    refresh()
   }
+
+  function refreshBackend(){
+    for (i=0; i<8;i++)   //Todo: Cand adaugam si celelalte optimi sa emrgem pana la 16
+    {
+      console.log(usedata_optimi[i].nume);
+      document.getElementById("optimi"+i).innerHTML = usedata_optimi[i].nume;
+    }
+}
+
   
   function resetMe() {
     console.log("am intrat in resetMe");
@@ -49,6 +54,7 @@ function loadDoc() {
     alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
    printMe()
    calcOptieme()
+   refreshBackend()
 
   }
 

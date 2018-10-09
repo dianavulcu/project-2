@@ -1,308 +1,367 @@
 <!doctype html>
 <html ng-app="todoApp">
-	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-		<script src="app.js"></script>
-		<script type="text/javascript" src="test.json"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<link rel="stylesheet" href="app.css">		
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css"> 
 
-		  <script>
-		$( function() {
-			$( "#sortable" ).sortable({
-    /*stop: function(event, ui) {
-        alert("New position: " + ui.item.index());
-    }*/
-    start: function(e, ui) {
-        // creates a temporary attribute on the element with the old index
-        $(this).attr('data-previndex', ui.item.index());
-    },
-    update: function(e, ui) {
-        // gets the new and old index then removes the temporary attribute
-        var newIndex = ui.item.index();
-        var oldIndex = parseInt($(this).attr('data-previndex'))
-				var element_id = ui.item.attr('id');
-				//Todo:
-				//Function to get three elemets as parameters : newIndex oldIndex element_id
-		//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
-				applyPermuttation(element_id,oldIndex,newIndex )
-        $(this).removeAttr('data-previndex');
-    }
-}
-			);
-			$( "#sortable" ).disableSelection();
-			$( "#sortable1" ).sortable({
-	/*stop: function(event, ui) {
-			alert("New position: " + ui.item.index());
-		}*/
-		start: function(e, ui) {
-			// creates a temporary attribute on the element with the old index
-			$(this).attr('data-previndex', ui.item.index());
-		},
-		update: function(e, ui) {
-			// gets the new and old index then removes the temporary attribute
-			var newIndex = ui.item.index();
-			var oldIndex = parseInt($(this).attr('data-previndex'))
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+	<script src="app.js"></script>
+	<script type="text/javascript" src="test.json"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="app.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+
+	<script>
+		$(function () {
+			$("#sortable").sortable({
+				/*stop: function(event, ui) {
+					alert("New position: " + ui.item.index());
+				}*/
+				start: function (e, ui) {
+					// creates a temporary attribute on the element with the old index
+					$(this).attr('data-previndex', ui.item.index());
+				},
+				update: function (e, ui) {
+					// gets the new and old index then removes the temporary attribute
+					var newIndex = ui.item.index();
+					var oldIndex = parseInt($(this).attr('data-previndex'))
 					var element_id = ui.item.attr('id');
 					//Todo:
 					//Function to get three elemets as parameters : newIndex oldIndex element_id
-			//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
-					oldIndex=oldIndex+4;
-					newIndex=newIndex+4;
-					applyPermuttation(element_id,oldIndex,newIndex )
-			$(this).removeAttr('data-previndex');
-		}
-	}					
+					//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+					applyPermuttation(element_id, oldIndex, newIndex)
+					$(this).removeAttr('data-previndex');
+				}
+			}
 			);
-			$( "#sortable1" ).disableSelection();
-			$( "#sortable2" ).sortable({
-	/*stop: function(event, ui) {
-			alert("New position: " + ui.item.index());
-		}*/
-		start: function(e, ui) {
-			// creates a temporary attribute on the element with the old index
-			$(this).attr('data-previndex', ui.item.index());
-		},
-		update: function(e, ui) {
-			// gets the new and old index then removes the temporary attribute
-			var newIndex = ui.item.index();
-			var oldIndex = parseInt($(this).attr('data-previndex'))
+			$("#sortable").disableSelection();
+			$("#sortable1").sortable({
+				/*stop: function(event, ui) {
+						alert("New position: " + ui.item.index());
+					}*/
+				start: function (e, ui) {
+					// creates a temporary attribute on the element with the old index
+					$(this).attr('data-previndex', ui.item.index());
+				},
+				update: function (e, ui) {
+					// gets the new and old index then removes the temporary attribute
+					var newIndex = ui.item.index();
+					var oldIndex = parseInt($(this).attr('data-previndex'))
 					var element_id = ui.item.attr('id');
 					//Todo:
 					//Function to get three elemets as parameters : newIndex oldIndex element_id
-			//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
-					oldIndex=oldIndex+8;
-					newIndex=newIndex+8;
-					applyPermuttation(element_id,oldIndex,newIndex )
-			$(this).removeAttr('data-previndex');
-		}
-	}	
+					//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+					oldIndex = oldIndex + 4;
+					newIndex = newIndex + 4;
+					applyPermuttation(element_id, oldIndex, newIndex)
+					$(this).removeAttr('data-previndex');
+				}
+			}
+			);
+			$("#sortable1").disableSelection();
+			$("#sortable2").sortable({
+				/*stop: function(event, ui) {
+						alert("New position: " + ui.item.index());
+					}*/
+				start: function (e, ui) {
+					// creates a temporary attribute on the element with the old index
+					$(this).attr('data-previndex', ui.item.index());
+				},
+				update: function (e, ui) {
+					// gets the new and old index then removes the temporary attribute
+					var newIndex = ui.item.index();
+					var oldIndex = parseInt($(this).attr('data-previndex'))
+					var element_id = ui.item.attr('id');
+					//Todo:
+					//Function to get three elemets as parameters : newIndex oldIndex element_id
+					//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+					oldIndex = oldIndex + 8;
+					newIndex = newIndex + 8;
+					applyPermuttation(element_id, oldIndex, newIndex)
+					$(this).removeAttr('data-previndex');
+				}
+			}
 
 			);
-			$( "#sortable2" ).disableSelection();
-			$( "#sortable3" ).sortable({
-	/*stop: function(event, ui) {
-			alert("New position: " + ui.item.index());
-		}*/
-		start: function(e, ui) {
-			// creates a temporary attribute on the element with the old index
-			$(this).attr('data-previndex', ui.item.index());
-		},
-		update: function(e, ui) {
-			// gets the new and old index then removes the temporary attribute
-			var newIndex = ui.item.index();
-			var oldIndex = parseInt($(this).attr('data-previndex'))
+			$("#sortable2").disableSelection();
+			$("#sortable3").sortable({
+				/*stop: function(event, ui) {
+						alert("New position: " + ui.item.index());
+					}*/
+				start: function (e, ui) {
+					// creates a temporary attribute on the element with the old index
+					$(this).attr('data-previndex', ui.item.index());
+				},
+				update: function (e, ui) {
+					// gets the new and old index then removes the temporary attribute
+					var newIndex = ui.item.index();
+					var oldIndex = parseInt($(this).attr('data-previndex'))
 					var element_id = ui.item.attr('id');
 					//Todo:
 					//Function to get three elemets as parameters : newIndex oldIndex element_id
-			//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
-					oldIndex=oldIndex+12;
-					newIndex=newIndex+12;
-					applyPermuttation(element_id,oldIndex,newIndex )
-			$(this).removeAttr('data-previndex');
-		}
-	}	
+					//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+					oldIndex = oldIndex + 12;
+					newIndex = newIndex + 12;
+					applyPermuttation(element_id, oldIndex, newIndex)
+					$(this).removeAttr('data-previndex');
+				}
+			}
 			);
-			$( "#sortable3" ).disableSelection();
-			$( "#sortable4" ).sortable({
-	/*stop: function(event, ui) {
-			alert("New position: " + ui.item.index());
-		}*/
-		start: function(e, ui) {
-			// creates a temporary attribute on the element with the old index
-			$(this).attr('data-previndex', ui.item.index());
-		},
-		update: function(e, ui) {
-			// gets the new and old index then removes the temporary attribute
-			var newIndex = ui.item.index();
-			var oldIndex = parseInt($(this).attr('data-previndex'))
+			$("#sortable3").disableSelection();
+			$("#sortable4").sortable({
+				/*stop: function(event, ui) {
+						alert("New position: " + ui.item.index());
+					}*/
+				start: function (e, ui) {
+					// creates a temporary attribute on the element with the old index
+					$(this).attr('data-previndex', ui.item.index());
+				},
+				update: function (e, ui) {
+					// gets the new and old index then removes the temporary attribute
+					var newIndex = ui.item.index();
+					var oldIndex = parseInt($(this).attr('data-previndex'))
 					var element_id = ui.item.attr('id');
 					//Todo:
 					//Function to get three elemets as parameters : newIndex oldIndex element_id
-			//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
-					oldIndex=oldIndex+16;
-					newIndex=newIndex+16;
-					applyPermuttation(element_id,oldIndex,newIndex )
-			$(this).removeAttr('data-previndex');
-		}
-	}	
+					//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+					oldIndex = oldIndex + 16;
+					newIndex = newIndex + 16;
+					applyPermuttation(element_id, oldIndex, newIndex)
+					$(this).removeAttr('data-previndex');
+				}
+			}
 			);
-			$( "#sortable4" ).disableSelection();
-			$( "#sortable5" ).sortable({
-	/*stop: function(event, ui) {
-			alert("New position: " + ui.item.index());
-		}*/
-		start: function(e, ui) {
-			// creates a temporary attribute on the element with the old index
-			$(this).attr('data-previndex', ui.item.index());
-		},
-		update: function(e, ui) {
-			// gets the new and old index then removes the temporary attribute
-			var newIndex = ui.item.index();
-			var oldIndex = parseInt($(this).attr('data-previndex'))
+			$("#sortable4").disableSelection();
+			$("#sortable5").sortable({
+				/*stop: function(event, ui) {
+						alert("New position: " + ui.item.index());
+					}*/
+				start: function (e, ui) {
+					// creates a temporary attribute on the element with the old index
+					$(this).attr('data-previndex', ui.item.index());
+				},
+				update: function (e, ui) {
+					// gets the new and old index then removes the temporary attribute
+					var newIndex = ui.item.index();
+					var oldIndex = parseInt($(this).attr('data-previndex'))
 					var element_id = ui.item.attr('id');
 					//Todo:
 					//Function to get three elemets as parameters : newIndex oldIndex element_id
-			//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
-					oldIndex=oldIndex+20;
-					newIndex=newIndex+20;
-					applyPermuttation(element_id,oldIndex,newIndex )
-			$(this).removeAttr('data-previndex');
-		}
-	}	
+					//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+					oldIndex = oldIndex + 20;
+					newIndex = newIndex + 20;
+					applyPermuttation(element_id, oldIndex, newIndex)
+					$(this).removeAttr('data-previndex');
+				}
+			}
 			);
-			$( "#sortable5" ).disableSelection();
-			$( "#sortable6" ).sortable({
-	/*stop: function(event, ui) {
-			alert("New position: " + ui.item.index());
-		}*/
-		start: function(e, ui) {
-			// creates a temporary attribute on the element with the old index
-			$(this).attr('data-previndex', ui.item.index());
-		},
-		update: function(e, ui) {
-			// gets the new and old index then removes the temporary attribute
-			var newIndex = ui.item.index();
-			var oldIndex = parseInt($(this).attr('data-previndex'))
+			$("#sortable5").disableSelection();
+			$("#sortable6").sortable({
+				/*stop: function(event, ui) {
+						alert("New position: " + ui.item.index());
+					}*/
+				start: function (e, ui) {
+					// creates a temporary attribute on the element with the old index
+					$(this).attr('data-previndex', ui.item.index());
+				},
+				update: function (e, ui) {
+					// gets the new and old index then removes the temporary attribute
+					var newIndex = ui.item.index();
+					var oldIndex = parseInt($(this).attr('data-previndex'))
 					var element_id = ui.item.attr('id');
 					//Todo:
 					//Function to get three elemets as parameters : newIndex oldIndex element_id
-			//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
-					oldIndex=oldIndex+24;
-					newIndex=newIndex+24;
-					applyPermuttation(element_id,oldIndex,newIndex )
-			$(this).removeAttr('data-previndex');
-		}
-	}	
+					//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+					oldIndex = oldIndex + 24;
+					newIndex = newIndex + 24;
+					applyPermuttation(element_id, oldIndex, newIndex)
+					$(this).removeAttr('data-previndex');
+				}
+			}
 			);
-			$( "#sortable6" ).disableSelection();
-			$( "#sortable7" ).sortable({
-	/*stop: function(event, ui) {
-			alert("New position: " + ui.item.index());
-		}*/
-		start: function(e, ui) {
-			// creates a temporary attribute on the element with the old index
-			$(this).attr('data-previndex', ui.item.index());
-		},
-		update: function(e, ui) {
-			// gets the new and old index then removes the temporary attribute
-			var newIndex = ui.item.index();
-			var oldIndex = parseInt($(this).attr('data-previndex'))
+			$("#sortable6").disableSelection();
+			$("#sortable7").sortable({
+				/*stop: function(event, ui) {
+						alert("New position: " + ui.item.index());
+					}*/
+				start: function (e, ui) {
+					// creates a temporary attribute on the element with the old index
+					$(this).attr('data-previndex', ui.item.index());
+				},
+				update: function (e, ui) {
+					// gets the new and old index then removes the temporary attribute
+					var newIndex = ui.item.index();
+					var oldIndex = parseInt($(this).attr('data-previndex'))
 					var element_id = ui.item.attr('id');
 					//Todo:
 					//Function to get three elemets as parameters : newIndex oldIndex element_id
-			//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
-					oldIndex=oldIndex+28;
-					newIndex=newIndex+28;
-					applyPermuttation(element_id,oldIndex,newIndex )
-			$(this).removeAttr('data-previndex');
-		}
-	}	
+					//		alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
+					oldIndex = oldIndex + 28;
+					newIndex = newIndex + 28;
+					applyPermuttation(element_id, oldIndex, newIndex)
+					$(this).removeAttr('data-previndex');
+				}
+			}
 			);
-			$( "#sortable7" ).disableSelection();
+			$("#sortable7").disableSelection();
 
-			} );
-			window.onload = loadDoc;
-  </script>
-	</head>
-	<body>
-		<div ng-app="myApp" ng-controller="formCtrl">
-			<form  class = "lala">
-			 User:<br>
-			 <input type="text" ng-model="user.firstName"><br>
-			 Password:<br>
-			 <input type="text" ng-model="user.lastName"><br>
-			 <br><br>
-			 <button type="button" onclick="modifyMe()" >SAVE</button>
-			 <button type="button" onclick="loadDoc()">LOAD</button>
-			 <button type="button" onclick="resetMe()">RESET</button>
-			 
-			</form>
-		</div>
-		<table id="table1">	
-			<li id="header1">Poule A</li>	
-			<ul id="sortable">
-				<li id="testme0" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>1. Item 1</li>
-				<li id="testme1" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-				<li id="testme2" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-				<li id="testme3" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-			</ul>
-			
-			<li id="header1">Poule B</li>	
-			<ul id="sortable1">
-				<li id="testme4" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Lala</li>
-				<li id="testme5" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-				<li id="testme6" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-				<li id="testme7" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-			</ul>
+		});
+		window.onload = loadDoc;
+	</script>
+</head>
 
-			<li id="header1">Poule C</li>
-			<ul id="sortable2">
-				<li id="testme8" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Band3</li>
-				<li id="testme9" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-				<li id="testme10" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-				<li id="testme11" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-			</ul>
+<body>
+	<div ng-app="myApp" ng-controller="formCtrl">
+		<form class="lala">
+			User:<br>
+			<input type="text" ng-model="user.firstName"><br>
+			Password:<br>
+			<input type="text" ng-model="user.lastName"><br>
+			<br><br>
+			<button type="button" onclick="modifyMe()">SAVE</button>
+			<button type="button" onclick="loadDoc()">LOAD</button>
+			<button type="button" onclick="resetMe()">RESET</button>
 
-			<li id="header1">Poule D</li>
-			<ul id="sortable3">
-				<li id="testme12" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>4444</li>
-				<li id="testme13" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-				<li id="testme14" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-				<li id="testme15" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-			</ul>  
-		</table>  
-		<table id="table2">
-				<li id="header2">Poule E</li>	
-				<ul id="sortable4">
-					<li id="testme16" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>1. Item 1</li>
-					<li id="testme17" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-					<li id="testme18" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-					<li id="testme19" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-				</ul>
-				
-				<li id="header3">Poule F</li>	
-				<ul id="sortable5">
-					<li id="testme20" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Lala</li>
-					<li id="testme21" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-					<li id="testme22" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-					<li id="testme23" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-				</ul>
-	
-				<li id="header4">Poule G</li>
-				<ul id="sortable6">
-					<li id="testme24" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Band3</li>
-					<li id="testme25" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-					<li id="testme26" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-					<li id="testme27" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-				</ul>
-	
-				<li id="header5">Poule H</li>
-				<ul id="sortable7">
-					<li id="testme28" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>4444</li>
-					<li id="testme29" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-					<li id="testme30" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-					<li id="testme31" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-				</ul> 
+		</form>
+	</div>
+	<table id="table1">
+		<li id="header1">Poule A</li>
+		<ul id="sortable">
+			<li id="testme0" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>1. Item 1</li>
+			<li id="testme1" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+			<li id="testme2" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+			<li id="testme3" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+		</ul>
+
+		<li id="header1">Poule B</li>
+		<ul id="sortable1">
+			<li id="testme4" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Lala</li>
+			<li id="testme5" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+			<li id="testme6" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+			<li id="testme7" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+		</ul>
+
+		<li id="header1">Poule C</li>
+		<ul id="sortable2">
+			<li id="testme8" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Band3</li>
+			<li id="testme9" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+			<li id="testme10" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+			<li id="testme11" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+		</ul>
+
+		<li id="header1">Poule D</li>
+		<ul id="sortable3">
+			<li id="testme12" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>4444</li>
+			<li id="testme13" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+			<li id="testme14" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+			<li id="testme15" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+		</ul>
+	</table>
+	<table id="table2">
+		<li id="header2">Poule E</li>
+		<ul id="sortable4">
+			<li id="testme16" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>1. Item 1</li>
+			<li id="testme17" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+			<li id="testme18" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+			<li id="testme19" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+		</ul>
+
+		<li id="header3">Poule F</li>
+		<ul id="sortable5">
+			<li id="testme20" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Lala</li>
+			<li id="testme21" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+			<li id="testme22" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+			<li id="testme23" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+		</ul>
+
+		<li id="header4">Poule G</li>
+		<ul id="sortable6">
+			<li id="testme24" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Band3</li>
+			<li id="testme25" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+			<li id="testme26" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+			<li id="testme27" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+		</ul>
+
+		<li id="header5">Poule H</li>
+		<ul id="sortable7">
+			<li id="testme28" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>4444</li>
+			<li id="testme29" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+			<li id="testme30" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+			<li id="testme31" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+		</ul>
+	</table>
+	<table border="1">
+		<thead>
+			<tr>
+				<th><input type="radio" name="team1" checked="checked" value="Victory"></th>
+				<th><input type="radio" name="team1" value="Loser"></th>
+			</tr>
+			<tr>
+				<th id="optimi0">Col 4.1</th>
+				<th id="optimi1">Col 4.2</th>
+			</tr>
+		</thead>
+	</table>
+	<table border="1">
+		<thead>
+			<tr>
+				<th><input type="radio" name="team2" checked="checked" value="Victory"></th>
+				<th><input type="radio" name="team2" value="Loser"></th>
+			</tr>
+			<tr>
+				<th id="optimi2">Col 4.1</th>
+				<th id="optimi3">Col 4.2</th>
+			</tr>
+		</thead>
+	</table>
+	<table border="1">
+		<thead>
+			<tr>
+				<th><input type="radio" name="team3" checked="checked" value="Victory"></th>
+				<th><input type="radio" name="team3" value="Loser"></th>
+			</tr>
+			<tr>
+				<th id="optimi4">Col 4.1</th>
+				<th id="optimi5">Col 4.2</th>
+			</tr>
+		</thead>
+	</table>
+	<table border="1">
+			<thead>
+				<tr>
+					<th><input type="radio" name="team4" checked="checked" value="Victory"></th>
+					<th><input type="radio" name="team4" value="Loser"></th>
+				</tr>
+				<tr>
+					<th id="optimi6">Col 4.1</th>
+					<th id="optimi7">Col 4.2</th>
+				</tr>
+			</thead>
 		</table>
 		<table border="1">
-			<thead>
-			  <form action="">	
-			  <tr>
-				
-				<th><input type="radio" name="gender" value="Victory"></th>
-				<th><input type="radio" name="gender" value="Loser"></th>
-				
-			  </tr>
-			</form>
-			  <tr>
-				<th>Col 4.1</th>
-				<th>Col 4.2</th>
-			  </tr>
-			</thead>
-		  </table>
-	</body>
-</html>	
+				<thead>
+					<tr>
+						<th><input type="radio" name="quarts" checked="checked" value="Victory"></th>
+						<th><input type="radio" name="quarts" value="Loser"></th>
+					</tr>
+					<tr>
+						<th>Col 4.1</th>
+						<th>Col 4.2</th>
+					</tr>
+				</thead>
+			</table>
+			<table border="1">
+					<thead>
+						<tr>
+							<th><input type="radio" name="quarts1" checked="checked" value="Victory"></th>
+							<th><input type="radio" name="quarts1" value="Loser"></th>
+						</tr>
+						<tr>
+							<th>Col 4.1</th>
+							<th>Col 4.2</th>
+						</tr>
+					</thead>
+				</table>
+</body>
+
+</html>
