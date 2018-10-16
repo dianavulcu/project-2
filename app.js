@@ -1,11 +1,13 @@
 var userdata_model = ""
 var userdata_backend = ""
 var usedata_optimi = {}
+var usedata_quatrieme = {}
 function loadDoc() {
     console.log("am intrat in loadDoc");
     userdata_model = JSON.parse(data);	
     userdata_backend = userdata_model
     calcOptieme() //generating optimeme
+    calcQuatrieme()
     applyOnStartupGroups()   //applying first time groups from json file
     refreshBackend()
   }
@@ -54,7 +56,9 @@ function loadDoc() {
     alert('id of Item moved = '+element_id+' old position = '+oldIndex+' new position = '+newIndex);
    printMe()
    calcOptieme()
+   calcQuatrieme()
    refreshBackend()
+  
 
   }
 
@@ -106,4 +110,19 @@ function loadDoc() {
       }
      }  
    } 
+
+   function calcQuatrieme(){
+    var indexQuatrieme = 0;
+    for(i=0;i<16;i++){
+        if(i%2==0){
+          usedata_quatrieme[indexQuatrieme]=usedata_optimi[i];
+          indexQuatrieme++;
+        }
+      }   
+  /*  reoderQuatrieme() 
+    console.log("calcOptimi print");
+    for(i=0;i<16;i++){
+      console.log(usedata_optimi[i].nume);
+     } */
+    }
 
