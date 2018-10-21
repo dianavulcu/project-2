@@ -2,6 +2,7 @@ var userdata_model = ""
 var userdata_backend = ""
 var usedata_optimi = {}
 var usedata_quatrieme = {}
+var usedata_semi = {}
 function loadDoc() {
     console.log("am intrat in loadDoc");
     userdata_model = JSON.parse(data);	
@@ -24,6 +25,11 @@ function loadDoc() {
     {
       console.log(usedata_optimi[i].nume);
       document.getElementById("optimi"+i).innerHTML = usedata_optimi[i].nume;
+    }
+    for (i=0; i<8;i++)   
+    {
+      console.log(usedata_quatrieme[i].nume);
+      document.getElementById("quatri"+i).innerHTML = usedata_quatrieme[i].nume;
     }
 }
 
@@ -119,10 +125,30 @@ function loadDoc() {
           indexQuatrieme++;
         }
       }   
-  /*  reoderQuatrieme() 
-    console.log("calcOptimi print");
-    for(i=0;i<16;i++){
-      console.log(usedata_optimi[i].nume);
-     } */
+    reoderQuatrieme() 
+    console.log("calcQuatrieme print");
+    for(i=0;i<8;i++){
+      console.log(usedata_quatrieme[i].nume);
+     } 
     }
+
+    function reoderQuatrieme(){
+      for(i=0;i<8;i++){
+        if(i%4==1){
+        temp = usedata_quatrieme[i]
+        usedata_quatrieme[i]=usedata_quatrieme[i+1]
+        usedata_quatrieme[i+1] = temp
+        }
+      }  
+     } 
+
+     function calcSemiFinal(){ //Todo
+      var indexSemi = 0;
+      for(i=0;i<8;i++){
+          if(i%2==0){
+            usedata_semi[indexSemi]=usedata_quatrieme[i];
+            indexSemi++;
+          }
+        }   
+      }
 
