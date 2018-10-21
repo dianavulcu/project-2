@@ -142,7 +142,7 @@ function loadDoc() {
       }  
      } 
 
-     function calcSemiFinal(){ //Todo
+     /*function calcSemiFinal(){ //Todo
       var indexSemi = 0;
       for(i=0;i<8;i++){
           if(i%2==0){
@@ -150,5 +150,5 @@ function loadDoc() {
             indexSemi++;
           }
         }   
-      }
-
+      }*/
+// Pentru urmatorul pas: https://stackoverflow.com/questions/4754699/how-do-i-determine-if-a-checkbox-is-checked
